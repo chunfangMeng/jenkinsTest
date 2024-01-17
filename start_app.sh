@@ -3,7 +3,7 @@
 python manage.py collectstatic --noinput&&
 python manage.py makemigrations&&
 python manage.py migrate &&
-gunicorn -c gunicorn.conf jenkinsTest.wsgi &&
+gunicorn jenkinsTest.wsgi -b 0.0.0.0:8000 &&
 tail -f /dev/null
 
 exec "$@"
