@@ -1,0 +1,45 @@
+version: "3"
+volumes:
+  db_vol:
+  static_vol:
+  media_vol:
+
+networks:
+  db_networks:
+    driver: bridge
+
+services:
+  db:
+    container_name: jenkins_db
+    restart: always
+    image: mysql
+    env_file:
+      - ./.env
+    networks:
+      - db_networks
+    volumes:
+      - db_vol:/var/lib/mysql:rw
+      - ./db/conf/my.conf:/etc/mysql/my.cnf  # 挂载配置文件
+      - ./db/init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+  app:
+    restart: always
+    container_name: django_app
+    build: ./
+    env_file:
+      - ./.env
+    networks:
+      - db_networks
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    tty: true
+    stdin_open: true
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"

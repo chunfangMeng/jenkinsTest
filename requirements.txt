@@ -1,0 +1,12 @@
+asgiref==3.7.2
+Django==3.2.19
+gevent==23.9.1
+greenlet==3.0.3
+gunicorn==21.2.0
+packaging==23.2
+PyMySQL==1.1.0
+python-dotenv==1.0.0
+pytz==2023.3.post1
+sqlparse==0.4.4
+zope.event==5.0
+zope.interface==6.1
