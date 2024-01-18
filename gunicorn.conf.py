@@ -5,6 +5,9 @@ import os
 from logging.handlers import WatchedFileHandler
 
 
+if not os.path.isdir('./logs'):
+    os.mkdir('./logs')
+
 workers = multiprocessing.cpu_count() * 2 + 1
 threads = 2
 backlog = 512
