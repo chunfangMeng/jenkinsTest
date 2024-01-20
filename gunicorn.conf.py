@@ -16,5 +16,5 @@ daemon = 'false'
 worker_class = 'gevent'
 worker_connections = 2000
 loglevel = 'info'
-accesslog = './logs/gunicorn_access.log'
+accesslog = '-'
 access_log_format = '%(t)s %(p)s %(h)s "%(r)s" %(s)s %(L)s %(b)s %(f)s" "%(a)s"'

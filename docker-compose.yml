@@ -9,6 +9,18 @@ networks:
     driver: bridge
 
 services:
+  redis:
+    container_name: redis_db
+    restart: always
+    image: redis:latest
+    command: redis-server /etc/redis/redis.conf
+    networks:
+      - redis_network
+    volumes:
+      - redis_vol:/data
+      - ./compose/redis/redis.conf:/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
   db:
     container_name: jenkins_db
     restart: always
