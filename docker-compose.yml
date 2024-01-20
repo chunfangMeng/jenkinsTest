@@ -13,8 +13,11 @@ services:
     container_name: jenkins_db
     restart: always
     image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: mysql_test
     env_file:
-      - ./.env
+      - .env
     networks:
       - db_networks
     volumes:
