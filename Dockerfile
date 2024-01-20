@@ -17,4 +17,4 @@ RUN sed -i 's/\r//' ./start_app.sh
 
 RUN chmod +x ./start_app.sh
 
-ENTRYPOINT /bin/bash ./start_app.sh
+ENTRYPOINT /bin/bash ./start_app.sh -c
