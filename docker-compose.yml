@@ -23,7 +23,7 @@ services:
       - redis_vol:/data
       - ./redis/redis.conf:/etc/redis/redis.conf
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:${REDIS_PORT}"
   db:
     container_name: jenkins_db
     restart: always
@@ -51,8 +51,10 @@ services:
       - ./.env
     networks:
       - db_networks
+      - redis_network
     depends_on:
       - db
+      - redis
     volumes:
       - .:/app
     tty: true
