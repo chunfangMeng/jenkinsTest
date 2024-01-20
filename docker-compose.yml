@@ -1,10 +1,13 @@
 version: "3"
 volumes:
   db_vol:
+  redis_vol:
   static_vol:
   media_vol:
 
 networks:
+  redis_network:
+    driver: bridge
   db_networks:
     driver: bridge
 
@@ -18,7 +21,7 @@ services:
       - redis_network
     volumes:
       - redis_vol:/data
-      - ./compose/redis/redis.conf:/etc/redis/redis.conf
+      - ./redis/redis.conf:/etc/redis/redis.conf
     ports:
       - "6379:6379"
   db:
