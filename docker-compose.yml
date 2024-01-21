@@ -31,8 +31,8 @@ services:
     restart: always
     image: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: mysql_test
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     env_file:
       - .env
     networks:
