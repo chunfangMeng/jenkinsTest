@@ -11,3 +11,4 @@ sqlparse==0.4.4
 zope.event==5.0
 zope.interface==6.1
 celery==5.3.6
+redis==5.0.1
