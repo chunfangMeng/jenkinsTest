@@ -13,8 +13,8 @@ RUN /usr/local/bin/python -m pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-RUN sed -i 's/\r//' ./start_app.sh
+RUN sed -i 's/\r//' ./start_app.sh ./start_celery.sh
 
-RUN chmod +x ./start_app.sh
+RUN chmod +x ./start_app.sh ./start_celery.sh
 
 ENTRYPOINT /bin/bash -c "./start_app.sh"
