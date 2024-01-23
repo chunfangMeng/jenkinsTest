@@ -13,8 +13,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jenkinsTest.settings')
 
 app = Celery(
     'app_celery',
-    backend='redis://127.0.0.1:6379/3',
-    broker='redis://127.0.0.1:6379/3',
+    backend='redis://redis:6379/3',
+    broker='redis://redis:6379/3',
     include=[
         'auth_app.celery_tasks',
     ])
