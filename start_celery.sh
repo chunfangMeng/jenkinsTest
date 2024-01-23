@@ -1,2 +1,2 @@
 #!/bin/bash
-celery -A app_celery worker 0l info -c 4
+celery -A app_celery worker -l info -c 4
