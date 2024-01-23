@@ -1,15 +1,14 @@
 # coding: utf-8
-import os
-
 from __future__ import absolute_import
 from celery import Celery, platforms
 from dotenv import load_dotenv
+import os
 
 platforms.C_FORCE_ROOT = True
 
 load_dotenv()
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'service.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jenkinsTest.settings')
 
 
 app = Celery(
