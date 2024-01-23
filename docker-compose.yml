@@ -65,3 +65,17 @@ services:
       - "8000:8000"
     expose:
       - "8000"
+  celery_worker:
+    container_name: celery_worker
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    entrypoint: /var/www/html/app/start_celery.sh
+    volumes:
+      - .:/app
+    env_file:
+      - ./app/.env
+    depends_on:
+      - app
+      - redis
+    restart: unless-stopped
