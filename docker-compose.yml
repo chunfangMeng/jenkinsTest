@@ -71,6 +71,8 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     entrypoint: /var/www/html/app/start_celery.sh
+    networks:
+      - redis_network
     volumes:
       - .:/app
     env_file:
