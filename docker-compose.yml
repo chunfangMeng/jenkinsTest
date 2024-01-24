@@ -69,7 +69,6 @@ services:
     container_name: celery_worker
     build:
       context: ./
-      dockerfile: ./Dockerfile
     entrypoint: /var/www/html/app/start_celery.sh
     networks:
       - redis_network
